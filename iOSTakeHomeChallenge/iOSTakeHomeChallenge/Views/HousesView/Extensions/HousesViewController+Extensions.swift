@@ -27,5 +27,17 @@ extension HousesViewController: UISearchBarDelegate {
             self.tableView.reloadData()
         }
     }
+}
+
+extension HousesViewController: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        cachedHouses.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HouseTableViewCell") as! HouseTableViewCell
+        cell.setupWith(house: cachedHouses[indexPath.row])
+        return cell
+    }
 }

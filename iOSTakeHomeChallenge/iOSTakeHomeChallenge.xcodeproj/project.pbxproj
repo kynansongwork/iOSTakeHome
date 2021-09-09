@@ -21,6 +21,9 @@
 		ED11EBA426E8CBB300536C45 /* UIColour+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBA326E8CBB300536C45 /* UIColour+Extensions.swift */; };
 		ED11EBA926E8EF9600536C45 /* HousesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBA826E8EF9600536C45 /* HousesTableViewCell.swift */; };
 		ED11EBAC26E8EFC400536C45 /* HousesViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBAB26E8EFC400536C45 /* HousesViewController+Extensions.swift */; };
+		ED11EBAE26E9FCD000536C45 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBAD26E9FCD000536C45 /* Models.swift */; };
+		ED11EBB326EA05B200536C45 /* CharactersViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBB226EA05B200536C45 /* CharactersViewController+Extensions.swift */; };
+		ED11EBB526EA060F00536C45 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBB426EA060F00536C45 /* CharacterTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		ED11EBA326E8CBB300536C45 /* UIColour+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColour+Extensions.swift"; sourceTree = "<group>"; };
 		ED11EBA826E8EF9600536C45 /* HousesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesTableViewCell.swift; sourceTree = "<group>"; };
 		ED11EBAB26E8EFC400536C45 /* HousesViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HousesViewController+Extensions.swift"; sourceTree = "<group>"; };
+		ED11EBAD26E9FCD000536C45 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		ED11EBB226EA05B200536C45 /* CharactersViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersViewController+Extensions.swift"; sourceTree = "<group>"; };
+		ED11EBB426EA060F00536C45 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 				117E699C25F7A21F00E313E3 /* Assets.xcassets */,
 				117E699E25F7A21F00E313E3 /* LaunchScreen.storyboard */,
 				117E69A125F7A21F00E313E3 /* Info.plist */,
+				ED11EBAD26E9FCD000536C45 /* Models.swift */,
 			);
 			path = iOSTakeHomeChallenge;
 			sourceTree = "<group>";
@@ -171,7 +178,9 @@
 		ED11EBA726E8EF7800536C45 /* CharactersView */ = {
 			isa = PBXGroup;
 			children = (
+				ED11EBB126EA059D00536C45 /* Extensions */,
 				117E69AE25F7A3B600E313E3 /* CharactersViewController.swift */,
+				ED11EBB426EA060F00536C45 /* CharacterTableViewCell.swift */,
 			);
 			path = CharactersView;
 			sourceTree = "<group>";
@@ -180,6 +189,14 @@
 			isa = PBXGroup;
 			children = (
 				ED11EBAB26E8EFC400536C45 /* HousesViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ED11EBB126EA059D00536C45 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED11EBB226EA05B200536C45 /* CharactersViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -284,7 +301,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED11EBAE26E9FCD000536C45 /* Models.swift in Sources */,
+				ED11EBB526EA060F00536C45 /* CharacterTableViewCell.swift in Sources */,
 				ED11EB9026E8BC4F00536C45 /* DateFormatter.swift in Sources */,
+				ED11EBB326EA05B200536C45 /* CharactersViewController+Extensions.swift in Sources */,
 				ED11EBA426E8CBB300536C45 /* UIColour+Extensions.swift in Sources */,
 				117E69AC25F7A3A600E313E3 /* HousesViewController.swift in Sources */,
 				ED11EBA926E8EF9600536C45 /* HousesTableViewCell.swift in Sources */,

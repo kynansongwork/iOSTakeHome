@@ -8,26 +8,7 @@
 import Foundation
 import UIKit
 
-struct House: Codable {
-    let url: String
-    let name: String
-    let region: String
-    let coatOfArms: String
-    let words: String
-    let titles: [String]
-    let seats: [String]
-    let currentLord: String
-    let heir: String
-    let overlord: String
-    let founded: String
-    let founder: String
-    let diedOut: String
-    let ancestralWeapons: [String]
-    let cadetBranches: [String]
-    let swornMembers: [String]
-}
-
-class HousesViewController: UIViewController, UITableViewDataSource {
+class HousesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var houseSearchBar: UISearchBar!
@@ -78,15 +59,5 @@ class HousesViewController: UIViewController, UITableViewDataSource {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cachedHouses.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HouseTableViewCell") as! HouseTableViewCell
-        cell.setupWith(house: cachedHouses[indexPath.row])
-        return cell
     }
 }

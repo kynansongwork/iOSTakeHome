@@ -8,33 +8,29 @@
 import Foundation
 import UIKit
 
-struct Character: Codable {
-    let url: String
-    let name: String
-    let gender: String
-    let culture: String
-    let born: String
-    let died: String
-    let aliases:  [String]
-    let father: String
-    let mother: String
-    let spouse: String
-    let allegiances: [String]
-    let books: [String]
-    let povBooks: [String]
-    let tvSeries: [String]
-    let playedBy: [String]
-}
-
-class CharactersViewController: UIViewController, UITableViewDataSource {
+class CharactersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var characterViewSearchBar: UISearchBar!
     
     var cachedCharacters: [Character] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //getCharacters()
-        getAllCharacters()
+        self.view.bringSubviewToFront(characterViewSearchBar)
+        
+        setUpSearchBar()
+        getCharacters()
+        //getAllCharacters()
+    }
+    
+    func setUpSearchBar() {
+        characterViewSearchBar.delegate = self
+        
+        let textFieldInsideSearchBar = characterViewSearchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = .white
+        
+        characterViewSearchBar.searchTextField.leftView?.tintColor = .white
     }
     
     func getAllCharacters() {
@@ -97,58 +93,5 @@ class CharactersViewController: UIViewController, UITableViewDataSource {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cachedCharacters.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterTableViewCell") as! CharacterTableViewCell
-        cell.setupWith(character: cachedCharacters[indexPath.row])
-        return cell
-    }
-}
-
-class CharacterTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var cultureLabel: UILabel!
-    @IBOutlet weak var bornLabel: UILabel!
-    @IBOutlet weak var diedLabel: UILabel!
-    @IBOutlet weak var seasonLabel: UILabel!
-    
-    func setupWith(character: Character) {
-        
-        nameLabel.text = character.name == "" ? character.aliases.first : character.name
-        cultureLabel.text = character.culture == "" ? "Unknown" : character.culture
-        bornLabel.text = character.born == "" ? "Unknown" : character.born
-        diedLabel.text = character.died == "" ? "Unknown" : character.died
-        
-        var seasons: String = ""
-        
-        for season in character.tvSeries {
-            if season == "Season 1" {
-                seasons.append("I ")
-            } else if season == "Season 2" {
-                seasons.append("II, ")
-            } else if season == "Season 3" {
-                seasons.append("III, ")
-            } else if season == "Season 4" {
-                seasons.append("IV, ")
-            } else if season == "Season 5" {
-                seasons.append("V, ")
-            } else if season == "Season 6" {
-                seasons.append("VI, ")
-            }  else if season == "Season 7" {
-                seasons.append("VII, ")
-            } else if season == "Season 8" {
-                seasons.append("VIII")
-            } else {
-                seasons.append("Not shown on TV")
-            }
-        }
-        
-        seasonLabel.text = seasons
     }
 }
