@@ -10,6 +10,29 @@ import UIKit
 
 extension CharactersViewController: UISearchBarDelegate {
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredCharacters = cachedCharacters.filter( { (text) -> Bool in
+            let searchString = text
+            let nameRange = searchString.name.range(of: searchText, options: .caseInsensitive)
+            let aliasRange = searchString.aliases.first?.range(of: searchText, options: .caseInsensitive)
+            
+            if nameRange == nil {
+                return aliasRange != nil
+            } else {
+                return nameRange != nil
+            }
+        })
+        
+        //Need to work out how to refresh list when deleting text.
+        if searchText.isEmpty {
+            getCharacters()
+            self.tableView.reloadData()
+        } else {
+            cachedCharacters = filteredCharacters
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension CharactersViewController: UITableViewDataSource  {

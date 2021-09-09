@@ -14,6 +14,7 @@ class CharactersViewController: UIViewController {
     @IBOutlet weak var characterViewSearchBar: UISearchBar!
     
     var cachedCharacters: [Character] = []
+    var filteredCharacters: [Character] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
