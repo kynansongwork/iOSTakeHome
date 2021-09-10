@@ -30,12 +30,16 @@ class HousesViewController: UIViewController {
         let textFieldInsideSearchBar = houseSearchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = .white
         
-        houseSearchBar.searchTextField.leftView?.tintColor = .white
+        houseSearchBar.searchTextField.leftView?.tintColor = .gray
+        houseSearchBar.barTintColor = .clear
+        houseSearchBar.backgroundColor = .clear
+        houseSearchBar.isTranslucent = true
+        houseSearchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     }
     
     func fetchHouses() {
         
-        fetchInfo(url: "https://anapioficeandfire.com/api/houses", completion: { housesInfo in
+        fetchInfo(view: self, url: "https://anapioficeandfire.com/api/houses", completion: { housesInfo in
             
             let houses = try! JSONDecoder().decode([House].self, from: housesInfo)
             self.loadData(houses: houses)

@@ -20,7 +20,7 @@ class BooksViewController: UIViewController {
     }
     
     func fetchBooks() {
-        fetchInfo(url: "https://anapioficeandfire.com/api/books", completion: { booksInfo in
+        fetchInfo(view: self, url: "https://anapioficeandfire.com/api/books", completion: { booksInfo in
             
             let books = try! JSONDecoder().decode([Book].self, from: booksInfo)
             self.loadData(books: books)

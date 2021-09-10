@@ -16,6 +16,13 @@ class BooksTableViewCell: UITableViewCell {
     
     func setupWith(book: Book) {
         
+        //https://newbedev.com/how-to-increase-the-uitableview-separator-height
+        let screenSize = UIScreen.main.bounds
+        let separatorHeight = CGFloat(1)
+        let additionalSeparator = UIView.init(frame: CGRect(x: 0, y: self.frame.size.height-separatorHeight, width: screenSize.width, height: separatorHeight))
+        additionalSeparator.backgroundColor = UIColor.gray
+        self.addSubview(additionalSeparator)
+        
         let releaseDate = dataFormatter(dateString: book.released)
 
         titleLabel.text = book.name

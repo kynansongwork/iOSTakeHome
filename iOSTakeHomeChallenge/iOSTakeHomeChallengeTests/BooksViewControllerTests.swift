@@ -10,23 +10,34 @@ import XCTest
 
 class BooksViewControllerTests: XCTestCase {
     
-    var viewController: HousesViewController!
+    var viewController: BooksViewController?
 
     override func setUpWithError() throws {
-        viewController = HousesViewController()
-        viewController.viewDidLoad()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        viewController = storyboard.instantiateViewController(identifier: "BooksView") as? BooksViewController
+        viewController?.loadView()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testCanGetHouses() throws {
-//        viewController.getHouses()
-//        
-//        let expectation = expectation(description: "Houses fetched")
-//        wait(for: [expectation], timeout: 4)
-//        XCTAssertTrue(viewController.cachedHouses.count != 0)
+    func testCanGetBooks() throws {
+        
+        let expectation = self.expectation(description: "Retrieving list of books")
+        
+        fetchInfo(url: "https://anapioficeandfire.com/api/books", completion: { booksInfo in
+            
+            let books = try! JSONDecoder().decode([Book].self, from: booksInfo)
+            self.viewController?.loadData(books: books)
+            
+            expectation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 5, handler: nil)
+        
+        XCTAssertTrue(viewController?.cachedBooks.count != 0)
     }
 
 

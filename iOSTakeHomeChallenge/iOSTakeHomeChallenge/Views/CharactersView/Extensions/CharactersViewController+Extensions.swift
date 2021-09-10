@@ -26,7 +26,7 @@ extension CharactersViewController: UISearchBarDelegate {
         
         //Need to work out how to refresh list when deleting text.
         if searchText.isEmpty {
-            getCharacters()
+            fetchCharacters()
             self.tableView.reloadData()
         } else {
             cachedCharacters = filteredCharacters

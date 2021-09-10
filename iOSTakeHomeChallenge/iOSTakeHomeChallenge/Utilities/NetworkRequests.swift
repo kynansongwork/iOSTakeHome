@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
-func fetchInfo(url: String, completion: @escaping (Data) -> Void) {
+func fetchInfo(view: UIViewController, url: String, completion: @escaping (Data) -> Void) {
     var request = URLRequest(url: URL(string: url)!)
     request.httpMethod = "GET"
     let config: URLSessionConfiguration = URLSessionConfiguration.default
@@ -18,14 +19,24 @@ func fetchInfo(url: String, completion: @escaping (Data) -> Void) {
     let task = URLSession(configuration: config).dataTask(with: request, completionHandler: { (data, response, error) in
         if (error != nil) {
             print("Oops")
-        }
-        
-        if let apiData = data {
-            completion(apiData)
+            networkErrorMessage(view: view, error: error)
         } else {
-            print("No data was fetched.")
+            if let apiData = data {
+                completion(apiData)
+            } else {
+                print("No data was fetched.")
+            }
         }
         
     })
     task.resume()
+}
+
+func networkErrorMessage(view: UIViewController, error: Error?) {
+    DispatchQueue.main.async {
+        let alert = UIAlertController(title: "There was an issue", message: "There was an issue fetching the data: \(error)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        view.present(alert, animated: true)
+    }
+    
 }

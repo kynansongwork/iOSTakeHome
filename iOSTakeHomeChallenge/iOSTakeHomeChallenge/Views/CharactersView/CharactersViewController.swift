@@ -21,8 +21,7 @@ class CharactersViewController: UIViewController {
         self.view.bringSubviewToFront(characterViewSearchBar)
         
         setUpSearchBar()
-        getCharacters()
-        //getAllCharacters()
+        fetchCharacters()
     }
     
     func setUpSearchBar() {
@@ -31,58 +30,16 @@ class CharactersViewController: UIViewController {
         let textFieldInsideSearchBar = characterViewSearchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = .white
         
-        characterViewSearchBar.searchTextField.leftView?.tintColor = .white
-    }
-    
-    func getAllCharacters() {
-        
-        for i in 1...600 {
-            var request = URLRequest(url: URL(string: "https://anapioficeandfire.com/api/characters/\(i)")!)
-
-            request.httpMethod = "GET"
-            let config: URLSessionConfiguration = URLSessionConfiguration.default
-            config.timeoutIntervalForRequest = 15
-            config.httpAdditionalHeaders = [
-                "Content-Type": "application/json"
-            ]
-            let task = URLSession(configuration: config).dataTask(with: request, completionHandler: { (data, response, error) in
-                if (error != nil) {
-                    print("Oops")
-                }
-                
-                if let unwrappedData = data {
-                    let character = try! JSONDecoder().decode(Character.self, from: unwrappedData)
-                    self.loadDataTwo(character: character)
-                }
-            })
-            task.resume()
-        }
-    }
-    
-    func getCharacters() {
-        
-        var request = URLRequest(url: URL(string: "https://anapioficeandfire.com/api/characters")!)
-        request.httpMethod = "GET"
-        let config: URLSessionConfiguration = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 15
-        config.httpAdditionalHeaders = [
-            "Content-Type": "application/json"
-        ]
-        let task = URLSession(configuration: config).dataTask(with: request, completionHandler: { (data, response, error) in
-            if (error != nil) {
-                print("Oops")
-            }
-            
-            let characters = try! JSONDecoder().decode([Character].self, from: data!)
-            self.loadData(characters: characters)
-            
-        })
-        task.resume()
+        characterViewSearchBar.searchTextField.leftView?.tintColor = .gray
+        characterViewSearchBar.barTintColor = .clear
+        characterViewSearchBar.backgroundColor = .clear
+        characterViewSearchBar.isTranslucent = true
+        characterViewSearchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     }
     
     func fetchCharacters() {
         
-        fetchInfo(url: "https://anapioficeandfire.com/api/characters", completion: { charactersInfo in
+        fetchInfo(view: self, url: "https://anapioficeandfire.com/api/characters", completion: { charactersInfo in
             let characters = try! JSONDecoder().decode([Character].self, from: charactersInfo)
             self.loadData(characters: characters)
         })

@@ -18,6 +18,12 @@ class CharacterTableViewCell: UITableViewCell {
     
     func setupWith(character: Character) {
         
+        let screenSize = UIScreen.main.bounds
+        let separatorHeight = CGFloat(1)
+        let additionalSeparator = UIView.init(frame: CGRect(x: 0, y: self.frame.size.height-separatorHeight, width: screenSize.width, height: separatorHeight))
+        additionalSeparator.backgroundColor = UIColor.gray
+        self.addSubview(additionalSeparator)
+        
         nameLabel.text = character.name == "" ? character.aliases.first : character.name
         cultureLabel.text = character.culture == "" ? "Unknown" : character.culture
         bornLabel.text = character.born == "" ? "Unknown" : character.born
