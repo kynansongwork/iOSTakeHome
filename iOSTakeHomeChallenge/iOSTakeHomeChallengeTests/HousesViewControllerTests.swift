@@ -1,21 +1,21 @@
 //
-//  BooksViewControllerTests.swift
+//  HousesViewControllerTests.swift
 //  iOSTakeHomeChallengeTests
 //
-//  Created by Kynan Song on 09/09/2021.
+//  Created by Kynan Song on 10/09/2021.
 //
 
 import XCTest
 @testable import iOSTakeHomeChallenge
 
-class BooksViewControllerTests: XCTestCase {
-    
-    var viewController: BooksViewController?
+class HousesViewControllerTests: XCTestCase {
+        
+    var viewController: HousesViewController?
 
     override func setUpWithError() throws {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        viewController = storyboard.instantiateViewController(identifier: "BooksView") as? BooksViewController
+        viewController = storyboard.instantiateViewController(identifier: "HousesView") as? HousesViewController
         viewController?.loadView()
     }
 
@@ -27,18 +27,18 @@ class BooksViewControllerTests: XCTestCase {
         
         guard let view = viewController else { return }
         
-        let expectation = self.expectation(description: "Retrieving list of books")
+        let expectation = self.expectation(description: "Retrieving list of houses")
         
-        fetchInfo(view: view, url: "https://anapioficeandfire.com/api/books", completion: { booksInfo in
+        fetchInfo(view: view, url: "https://anapioficeandfire.com/api/houses", completion: { housesInfo in
             
-            let books = try! JSONDecoder().decode([Book].self, from: booksInfo)
-            self.viewController?.loadData(books: books)
+            let houses = try! JSONDecoder().decode([House].self, from: housesInfo)
+            self.viewController?.loadData(houses: houses)
             
             expectation.fulfill()
         })
         
         waitForExpectations(timeout: 5, handler: nil)
         
-        XCTAssertTrue(viewController?.cachedBooks.count != 0)
+        XCTAssertTrue(viewController?.cachedHouses.count != 0)
     }
 }

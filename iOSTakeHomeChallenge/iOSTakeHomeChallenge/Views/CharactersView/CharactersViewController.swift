@@ -17,13 +17,16 @@ class CharactersViewController: UIViewController {
     var cachedCharacters: [Character] = []
     var filteredCharacters: [Character] = []
     
+    var page = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.bringSubviewToFront(characterViewSearchBar)
         self.view.bringSubviewToFront(loadingSpinner)
         
+        self.tableView.delegate = self
         setUpSearchBar()
-        fetchCharacters()
+        fetchCharacters(page: page, pageSize: 400)
     }
     
     func setUpSearchBar() {
@@ -39,19 +42,24 @@ class CharactersViewController: UIViewController {
         characterViewSearchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     }
     
-    func fetchCharacters() {
+    // This uses the fetch all url on the api docs
+    func fetchCharacters(page: Int, pageSize: Int) {
         
         loadingSpinner.isHidden = false
         loadingSpinner.startAnimating()
         
-        fetchInfo(view: self, url: "https://anapioficeandfire.com/api/characters", completion: { charactersInfo in
+        fetchInfo(view: self, url: "https://anapioficeandfire.com/api/characters?page=\(page)&pageSize=\(pageSize)", completion: { charactersInfo in
             let characters = try! JSONDecoder().decode([Character].self, from: charactersInfo)
             self.loadData(characters: characters)
         })
     }
     
     func loadData(characters: [Character]) {
-        cachedCharacters = characters
+        //cachedCharacters = characters
+        
+        for character in characters {
+            cachedCharacters.append(character)
+        }
         
         DispatchQueue.main.async { [self] in
             

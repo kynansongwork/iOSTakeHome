@@ -26,7 +26,7 @@ extension CharactersViewController: UISearchBarDelegate {
         
         //Need to work out how to refresh list when deleting text.
         if searchText.isEmpty {
-            fetchCharacters()
+            fetchCharacters(page: 1, pageSize: 400)
             self.tableView.reloadData()
         } else {
             cachedCharacters = filteredCharacters
@@ -35,7 +35,7 @@ extension CharactersViewController: UISearchBarDelegate {
     }
 }
 
-extension CharactersViewController: UITableViewDataSource  {
+extension CharactersViewController: UITableViewDataSource, UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cachedCharacters.count
@@ -45,5 +45,15 @@ extension CharactersViewController: UITableViewDataSource  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterTableViewCell") as! CharacterTableViewCell
         cell.setupWith(character: cachedCharacters[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == cachedCharacters.count {
+            if cachedCharacters.count >= 30 {
+                page += 1
+                fetchCharacters(page: page, pageSize: 100)
+                print("End of line: \(page)")
+            }
+        }
     }
 }

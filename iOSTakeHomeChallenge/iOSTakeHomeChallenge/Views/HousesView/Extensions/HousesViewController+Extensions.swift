@@ -20,7 +20,7 @@ extension HousesViewController: UISearchBarDelegate {
         
         //Need to work out how to refresh list when deleting text.
         if searchText.isEmpty {
-            fetchHouses()
+            fetchHouses(page: 1, numberOfPages: 400)
             self.tableView.reloadData()
         } else {
             cachedHouses = filteredHouses
@@ -29,7 +29,7 @@ extension HousesViewController: UISearchBarDelegate {
     }
 }
 
-extension HousesViewController: UITableViewDataSource {
+extension HousesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cachedHouses.count
@@ -39,5 +39,15 @@ extension HousesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HouseTableViewCell") as! HouseTableViewCell
         cell.setupWith(house: cachedHouses[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == cachedHouses.count {
+            if cachedHouses.count >= 50 {
+                page += 1
+                fetchHouses(page: page, numberOfPages: 100)
+                print("End of line, Houses: \(page)")
+            }
+        }
     }
 }

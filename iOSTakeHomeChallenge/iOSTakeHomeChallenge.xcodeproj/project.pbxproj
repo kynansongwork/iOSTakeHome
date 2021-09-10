@@ -28,6 +28,8 @@
 		ED11EBBC26EA7EC800536C45 /* BooksViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBBB26EA7EC800536C45 /* BooksViewController+Extensions.swift */; };
 		ED11EBBE26EB55AB00536C45 /* NetworkRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBBD26EB55AB00536C45 /* NetworkRequests.swift */; };
 		ED11EBC026EB7FED00536C45 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBBF26EB7FED00536C45 /* Int+Extensions.swift */; };
+		ED11EBC226EBA7CD00536C45 /* HousesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBC126EBA7CD00536C45 /* HousesViewControllerTests.swift */; };
+		ED11EBC426EBA7DC00536C45 /* CharactersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBC326EBA7DC00536C45 /* CharactersViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		ED11EBBB26EA7EC800536C45 /* BooksViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BooksViewController+Extensions.swift"; sourceTree = "<group>"; };
 		ED11EBBD26EB55AB00536C45 /* NetworkRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequests.swift; sourceTree = "<group>"; };
 		ED11EBBF26EB7FED00536C45 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		ED11EBC126EBA7CD00536C45 /* HousesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesViewControllerTests.swift; sourceTree = "<group>"; };
+		ED11EBC326EBA7DC00536C45 /* CharactersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,8 @@
 		ED11EB9626E8C77900536C45 /* iOSTakeHomeChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				ED11EBC326EBA7DC00536C45 /* CharactersViewControllerTests.swift */,
+				ED11EBC126EBA7CD00536C45 /* HousesViewControllerTests.swift */,
 				ED11EBB626EA3CD500536C45 /* BooksViewControllerTests.swift */,
 				ED11EB9926E8C77900536C45 /* Info.plist */,
 			);
@@ -346,6 +352,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED11EBB726EA3CD500536C45 /* BooksViewControllerTests.swift in Sources */,
+				ED11EBC426EBA7DC00536C45 /* CharactersViewControllerTests.swift in Sources */,
+				ED11EBC226EBA7CD00536C45 /* HousesViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

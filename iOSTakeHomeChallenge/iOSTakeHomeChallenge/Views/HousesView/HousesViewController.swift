@@ -17,13 +17,16 @@ class HousesViewController: UIViewController {
     var cachedHouses: [House] = []
     var filteredHouses: [House] = []
     
+    var page = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.bringSubviewToFront(houseSearchBar)
         self.view.bringSubviewToFront(loadingSpinner)
         
+        self.tableView.delegate = self
         setUpSearchBar()
-        fetchHouses()
+        fetchHouses(page: 1, numberOfPages: 400)
         loadingSpinner.isHidden = true
     }
     
@@ -40,12 +43,12 @@ class HousesViewController: UIViewController {
         houseSearchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     }
     
-    func fetchHouses() {
+    func fetchHouses(page: Int, numberOfPages: Int) {
         
         loadingSpinner.isHidden = false
         loadingSpinner.startAnimating()
         
-        fetchInfo(view: self, url: "https://anapioficeandfire.com/api/houses", completion: { housesInfo in
+        fetchInfo(view: self, url: "https://anapioficeandfire.com/api/houses?page=\(page)&pageSize=\(numberOfPages)", completion: { housesInfo in
             
             let houses = try! JSONDecoder().decode([House].self, from: housesInfo)
             self.loadData(houses: houses)

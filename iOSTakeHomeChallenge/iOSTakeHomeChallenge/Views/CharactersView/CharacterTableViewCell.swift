@@ -27,6 +27,9 @@ class CharacterTableViewCell: UITableViewCell {
         nameLabel.text = character.name == "" ? character.aliases.first : character.name
         cultureLabel.text = character.culture == "" ? "Unknown" : character.culture
         bornLabel.text = character.born == "" ? "Unknown" : character.born
+        
+        diedLabel.numberOfLines = 0
+        diedLabel.lineBreakMode = .byWordWrapping
         diedLabel.text = character.died == "" ? "Unknown" : character.died
         
         var seasons: String = ""
@@ -34,13 +37,17 @@ class CharacterTableViewCell: UITableViewCell {
         for season in character.tvSeries {
             
             if season.contains("Season") {
-                let numeral = season.replacingOccurrences(of: "Season", with: "").trimmingCharacters(in: .whitespaces)
-                guard let number = Int(numeral)?.romanNumeral else { return }
+                let number = season.replacingOccurrences(of: "Season", with: "").trimmingCharacters(in: .whitespaces)
+                guard let numeral = Int(number)?.romanNumeral else { return }
                 
-                if numeral == "1" || numeral == "8" {
-                    seasons.append(number)
+                if number == "1" || number == "8" {
+                    seasons.append(numeral)
                 } else {
-                    seasons.append(", \(number)")
+                    if seasons.contains("I") {
+                        seasons.append(", \(numeral)")
+                    } else {
+                        seasons.append(numeral)
+                    }
                 }
             } else {
                 seasons.append("Not shown on TV")
