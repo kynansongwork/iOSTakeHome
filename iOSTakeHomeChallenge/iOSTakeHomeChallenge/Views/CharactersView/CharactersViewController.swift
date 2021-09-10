@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 
 class CharactersViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var characterViewSearchBar: UISearchBar!
+    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     
     var cachedCharacters: [Character] = []
     var filteredCharacters: [Character] = []
@@ -19,6 +20,7 @@ class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.bringSubviewToFront(characterViewSearchBar)
+        self.view.bringSubviewToFront(loadingSpinner)
         
         setUpSearchBar()
         fetchCharacters()
@@ -39,6 +41,9 @@ class CharactersViewController: UIViewController {
     
     func fetchCharacters() {
         
+        loadingSpinner.isHidden = false
+        loadingSpinner.startAnimating()
+        
         fetchInfo(view: self, url: "https://anapioficeandfire.com/api/characters", completion: { charactersInfo in
             let characters = try! JSONDecoder().decode([Character].self, from: charactersInfo)
             self.loadData(characters: characters)
@@ -48,16 +53,12 @@ class CharactersViewController: UIViewController {
     func loadData(characters: [Character]) {
         cachedCharacters = characters
         
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
-    func loadDataTwo(character: Character) {
-        cachedCharacters.append(character)
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        DispatchQueue.main.async { [self] in
+            
+            loadingSpinner.stopAnimating()
+            loadingSpinner.isHidden = true
+            
+            tableView.reloadData()
         }
     }
 }

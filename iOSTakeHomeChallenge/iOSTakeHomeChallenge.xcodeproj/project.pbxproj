@@ -16,7 +16,6 @@
 		117E69AC25F7A3A600E313E3 /* HousesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E69AB25F7A3A600E313E3 /* HousesViewController.swift */; };
 		117E69AF25F7A3B600E313E3 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E69AE25F7A3B600E313E3 /* CharactersViewController.swift */; };
 		ED11EB9026E8BC4F00536C45 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EB8F26E8BC4F00536C45 /* DateFormatter.swift */; };
-		ED11EB9826E8C77900536C45 /* iOSTakeHomeChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EB9726E8C77900536C45 /* iOSTakeHomeChallengeTests.swift */; };
 		ED11EBA026E8C95300536C45 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EB9F26E8C95300536C45 /* TabBarController.swift */; };
 		ED11EBA426E8CBB300536C45 /* UIColour+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBA326E8CBB300536C45 /* UIColour+Extensions.swift */; };
 		ED11EBA926E8EF9600536C45 /* HousesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBA826E8EF9600536C45 /* HousesTableViewCell.swift */; };
@@ -54,7 +53,6 @@
 		117E69AE25F7A3B600E313E3 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		ED11EB8F26E8BC4F00536C45 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		ED11EB9526E8C77900536C45 /* iOSTakeHomeChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSTakeHomeChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED11EB9726E8C77900536C45 /* iOSTakeHomeChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTakeHomeChallengeTests.swift; sourceTree = "<group>"; };
 		ED11EB9926E8C77900536C45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED11EB9F26E8C95300536C45 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		ED11EBA326E8CBB300536C45 /* UIColour+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColour+Extensions.swift"; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				ED11EBB626EA3CD500536C45 /* BooksViewControllerTests.swift */,
-				ED11EB9726E8C77900536C45 /* iOSTakeHomeChallengeTests.swift */,
 				ED11EB9926E8C77900536C45 /* Info.plist */,
 			);
 			path = iOSTakeHomeChallengeTests;
@@ -348,7 +345,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED11EB9826E8C77900536C45 /* iOSTakeHomeChallengeTests.swift in Sources */,
 				ED11EBB726EA3CD500536C45 /* BooksViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

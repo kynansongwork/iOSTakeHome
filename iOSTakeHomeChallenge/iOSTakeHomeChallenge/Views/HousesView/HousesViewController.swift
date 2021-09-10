@@ -12,6 +12,7 @@ class HousesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var houseSearchBar: UISearchBar!
+    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     
     var cachedHouses: [House] = []
     var filteredHouses: [House] = []
@@ -19,9 +20,11 @@ class HousesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.bringSubviewToFront(houseSearchBar)
+        self.view.bringSubviewToFront(loadingSpinner)
         
         setUpSearchBar()
         fetchHouses()
+        loadingSpinner.isHidden = true
     }
     
     func setUpSearchBar() {
@@ -39,6 +42,9 @@ class HousesViewController: UIViewController {
     
     func fetchHouses() {
         
+        loadingSpinner.isHidden = false
+        loadingSpinner.startAnimating()
+        
         fetchInfo(view: self, url: "https://anapioficeandfire.com/api/houses", completion: { housesInfo in
             
             let houses = try! JSONDecoder().decode([House].self, from: housesInfo)
@@ -49,8 +55,12 @@ class HousesViewController: UIViewController {
     func loadData(houses: [House]) {
         cachedHouses = houses
         
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        DispatchQueue.main.async { [self] in
+            
+            loadingSpinner.stopAnimating()
+            loadingSpinner.isHidden = true
+            
+            tableView.reloadData()
         }
     }
 }

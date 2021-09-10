@@ -25,9 +25,11 @@ class BooksViewControllerTests: XCTestCase {
 
     func testCanGetBooks() throws {
         
+        guard let view = viewController else { return }
+        
         let expectation = self.expectation(description: "Retrieving list of books")
         
-        fetchInfo(url: "https://anapioficeandfire.com/api/books", completion: { booksInfo in
+        fetchInfo(view: view, url: "https://anapioficeandfire.com/api/books", completion: { booksInfo in
             
             let books = try! JSONDecoder().decode([Book].self, from: booksInfo)
             self.viewController?.loadData(books: books)

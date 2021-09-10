@@ -11,15 +11,23 @@ import UIKit
 class BooksViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     
     var cachedBooks: [Book] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.bringSubviewToFront(loadingSpinner)
+        
         fetchBooks()
+        loadingSpinner.isHidden = true
     }
     
     func fetchBooks() {
+        
+        loadingSpinner.isHidden = false
+        loadingSpinner.startAnimating()
+        
         fetchInfo(view: self, url: "https://anapioficeandfire.com/api/books", completion: { booksInfo in
             
             let books = try! JSONDecoder().decode([Book].self, from: booksInfo)
@@ -37,8 +45,12 @@ class BooksViewController: UIViewController {
         cachedBooks = sortedBooks
         
         //UI refresh on background thread causing crash. - followed stack trace (unclear) so just searched reload data.
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        DispatchQueue.main.async { [self] in
+            
+            loadingSpinner.stopAnimating()
+            loadingSpinner.isHidden = true
+            
+            tableView.reloadData()
         }
         
     }  
