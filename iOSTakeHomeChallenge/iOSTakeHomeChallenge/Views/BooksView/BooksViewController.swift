@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BooksViewController: UIViewController, UITableViewDataSource {
+class BooksViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,27 +16,15 @@ class BooksViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getBooks()
+        fetchBooks()
     }
     
-    func getBooks() {
-        var request = URLRequest(url: URL(string: "https://anapioficeandfire.com/api/books")!)
-        request.httpMethod = "GET"
-        let config: URLSessionConfiguration = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 15
-        config.httpAdditionalHeaders = [
-            "Content-Type": "application/json"
-        ]
-        let task = URLSession(configuration: config).dataTask(with: request, completionHandler: { (data, response, error) in
-            if (error != nil) {
-                print("Oops")
-            }
+    func fetchBooks() {
+        fetchInfo(url: "https://anapioficeandfire.com/api/books", completion: { booksInfo in
             
-            let books = try! JSONDecoder().decode([Book].self, from: data!)
+            let books = try! JSONDecoder().decode([Book].self, from: booksInfo)
             self.loadData(books: books)
-            
         })
-        task.resume()
     }
     
     func loadData(books: [Book]) {
@@ -53,32 +41,5 @@ class BooksViewController: UIViewController, UITableViewDataSource {
             self.tableView.reloadData()
         }
         
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cachedBooks.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BooksTableViewCell") as! BooksTableViewCell
-        cell.setupWith(book: cachedBooks[indexPath.row])
-        return cell
-    }
-    
-}
-
-class BooksTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var pagesLabel: UILabel!
-    
-    func setupWith(book: Book) {
-        
-        let releaseDate = dataFormatter(dateString: book.released)
-
-        titleLabel.text = book.name
-        dateLabel.text = releaseDate
-        pagesLabel.text =  "\(book.numberOfPages) pages"
-    }
+    }  
 }

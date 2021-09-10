@@ -21,7 +21,7 @@ class HousesViewController: UIViewController {
         self.view.bringSubviewToFront(houseSearchBar)
         
         setUpSearchBar()
-        getHouses()
+        fetchHouses()
     }
     
     func setUpSearchBar() {
@@ -33,24 +33,13 @@ class HousesViewController: UIViewController {
         houseSearchBar.searchTextField.leftView?.tintColor = .white
     }
     
-    func getHouses() {
-        var request = URLRequest(url: URL(string: "https://anapioficeandfire.com/api/houses")!)
-        request.httpMethod = "GET"
-        let config: URLSessionConfiguration = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 15
-        config.httpAdditionalHeaders = [
-            "Content-Type": "application/json"
-        ]
-        let task = URLSession(configuration: config).dataTask(with: request, completionHandler: { (data, response, error) in
-            if (error != nil) {
-                print("Oops")
-            }
+    func fetchHouses() {
+        
+        fetchInfo(url: "https://anapioficeandfire.com/api/houses", completion: { housesInfo in
             
-            let houses = try! JSONDecoder().decode([House].self, from: data!)
+            let houses = try! JSONDecoder().decode([House].self, from: housesInfo)
             self.loadData(houses: houses)
-            
         })
-        task.resume()
     }
     
     func loadData(houses: [House]) {

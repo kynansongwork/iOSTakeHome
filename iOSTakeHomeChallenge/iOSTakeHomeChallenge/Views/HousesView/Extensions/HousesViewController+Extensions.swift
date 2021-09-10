@@ -20,7 +20,7 @@ extension HousesViewController: UISearchBarDelegate {
         
         //Need to work out how to refresh list when deleting text.
         if searchText.isEmpty {
-            getHouses()
+            fetchHouses()
             self.tableView.reloadData()
         } else {
             cachedHouses = filteredHouses

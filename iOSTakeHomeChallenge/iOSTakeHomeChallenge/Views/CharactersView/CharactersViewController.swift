@@ -80,6 +80,14 @@ class CharactersViewController: UIViewController {
         task.resume()
     }
     
+    func fetchCharacters() {
+        
+        fetchInfo(url: "https://anapioficeandfire.com/api/characters", completion: { charactersInfo in
+            let characters = try! JSONDecoder().decode([Character].self, from: charactersInfo)
+            self.loadData(characters: characters)
+        })
+    }
+    
     func loadData(characters: [Character]) {
         cachedCharacters = characters
         

@@ -24,6 +24,10 @@
 		ED11EBAE26E9FCD000536C45 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBAD26E9FCD000536C45 /* Models.swift */; };
 		ED11EBB326EA05B200536C45 /* CharactersViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBB226EA05B200536C45 /* CharactersViewController+Extensions.swift */; };
 		ED11EBB526EA060F00536C45 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBB426EA060F00536C45 /* CharacterTableViewCell.swift */; };
+		ED11EBB726EA3CD500536C45 /* BooksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBB626EA3CD500536C45 /* BooksViewControllerTests.swift */; };
+		ED11EBB926EA7E9D00536C45 /* BooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBB826EA7E9D00536C45 /* BooksTableViewCell.swift */; };
+		ED11EBBC26EA7EC800536C45 /* BooksViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBBB26EA7EC800536C45 /* BooksViewController+Extensions.swift */; };
+		ED11EBBE26EB55AB00536C45 /* NetworkRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBBD26EB55AB00536C45 /* NetworkRequests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 		ED11EBAD26E9FCD000536C45 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		ED11EBB226EA05B200536C45 /* CharactersViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersViewController+Extensions.swift"; sourceTree = "<group>"; };
 		ED11EBB426EA060F00536C45 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		ED11EBB626EA3CD500536C45 /* BooksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewControllerTests.swift; sourceTree = "<group>"; };
+		ED11EBB826EA7E9D00536C45 /* BooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewCell.swift; sourceTree = "<group>"; };
+		ED11EBBB26EA7EC800536C45 /* BooksViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BooksViewController+Extensions.swift"; sourceTree = "<group>"; };
+		ED11EBBD26EB55AB00536C45 /* NetworkRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +136,7 @@
 			children = (
 				ED11EBA226E8CBA500536C45 /* Extensions */,
 				ED11EB8F26E8BC4F00536C45 /* DateFormatter.swift */,
+				ED11EBBD26EB55AB00536C45 /* NetworkRequests.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 		ED11EB9626E8C77900536C45 /* iOSTakeHomeChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				ED11EBB626EA3CD500536C45 /* BooksViewControllerTests.swift */,
 				ED11EB9726E8C77900536C45 /* iOSTakeHomeChallengeTests.swift */,
 				ED11EB9926E8C77900536C45 /* Info.plist */,
 			);
@@ -160,7 +170,9 @@
 		ED11EBA526E8EF6A00536C45 /* BooksView */ = {
 			isa = PBXGroup;
 			children = (
+				ED11EBBA26EA7EB200536C45 /* Extensions */,
 				117E69A825F7A39900E313E3 /* BooksViewController.swift */,
+				ED11EBB826EA7E9D00536C45 /* BooksTableViewCell.swift */,
 			);
 			path = BooksView;
 			sourceTree = "<group>";
@@ -197,6 +209,14 @@
 			isa = PBXGroup;
 			children = (
 				ED11EBB226EA05B200536C45 /* CharactersViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ED11EBBA26EA7EB200536C45 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED11EBBB26EA7EC800536C45 /* BooksViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,6 +327,9 @@
 				ED11EBB326EA05B200536C45 /* CharactersViewController+Extensions.swift in Sources */,
 				ED11EBA426E8CBB300536C45 /* UIColour+Extensions.swift in Sources */,
 				117E69AC25F7A3A600E313E3 /* HousesViewController.swift in Sources */,
+				ED11EBBE26EB55AB00536C45 /* NetworkRequests.swift in Sources */,
+				ED11EBB926EA7E9D00536C45 /* BooksTableViewCell.swift in Sources */,
+				ED11EBBC26EA7EC800536C45 /* BooksViewController+Extensions.swift in Sources */,
 				ED11EBA926E8EF9600536C45 /* HousesTableViewCell.swift in Sources */,
 				117E69AF25F7A3B600E313E3 /* CharactersViewController.swift in Sources */,
 				117E69A925F7A39900E313E3 /* BooksViewController.swift in Sources */,
@@ -322,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED11EB9826E8C77900536C45 /* iOSTakeHomeChallengeTests.swift in Sources */,
+				ED11EBB726EA3CD500536C45 /* BooksViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
