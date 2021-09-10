@@ -32,27 +32,20 @@ class CharacterTableViewCell: UITableViewCell {
         var seasons: String = ""
         
         for season in character.tvSeries {
-            if season == "Season 1" {
-                seasons.append("I ")
-            } else if season == "Season 2" {
-                seasons.append("II, ")
-            } else if season == "Season 3" {
-                seasons.append("III, ")
-            } else if season == "Season 4" {
-                seasons.append("IV, ")
-            } else if season == "Season 5" {
-                seasons.append("V, ")
-            } else if season == "Season 6" {
-                seasons.append("VI, ")
-            }  else if season == "Season 7" {
-                seasons.append("VII, ")
-            } else if season == "Season 8" {
-                seasons.append("VIII")
+            
+            if season.contains("Season") {
+                let numeral = season.replacingOccurrences(of: "Season", with: "").trimmingCharacters(in: .whitespaces)
+                guard let number = Int(numeral)?.romanNumeral else { return }
+                
+                if numeral == "1" || numeral == "8" {
+                    seasons.append(number)
+                } else {
+                    seasons.append(", \(number)")
+                }
             } else {
                 seasons.append("Not shown on TV")
             }
         }
-        
         seasonLabel.text = seasons
     }
 }

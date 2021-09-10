@@ -28,6 +28,7 @@
 		ED11EBB926EA7E9D00536C45 /* BooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBB826EA7E9D00536C45 /* BooksTableViewCell.swift */; };
 		ED11EBBC26EA7EC800536C45 /* BooksViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBBB26EA7EC800536C45 /* BooksViewController+Extensions.swift */; };
 		ED11EBBE26EB55AB00536C45 /* NetworkRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBBD26EB55AB00536C45 /* NetworkRequests.swift */; };
+		ED11EBC026EB7FED00536C45 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBBF26EB7FED00536C45 /* Int+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		ED11EBB826EA7E9D00536C45 /* BooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewCell.swift; sourceTree = "<group>"; };
 		ED11EBBB26EA7EC800536C45 /* BooksViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BooksViewController+Extensions.swift"; sourceTree = "<group>"; };
 		ED11EBBD26EB55AB00536C45 /* NetworkRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequests.swift; sourceTree = "<group>"; };
+		ED11EBBF26EB7FED00536C45 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				ED11EBA326E8CBB300536C45 /* UIColour+Extensions.swift */,
+				ED11EBBF26EB7FED00536C45 /* Int+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				ED11EBB926EA7E9D00536C45 /* BooksTableViewCell.swift in Sources */,
 				ED11EBBC26EA7EC800536C45 /* BooksViewController+Extensions.swift in Sources */,
 				ED11EBA926E8EF9600536C45 /* HousesTableViewCell.swift in Sources */,
+				ED11EBC026EB7FED00536C45 /* Int+Extensions.swift in Sources */,
 				117E69AF25F7A3B600E313E3 /* CharactersViewController.swift in Sources */,
 				117E69A925F7A39900E313E3 /* BooksViewController.swift in Sources */,
 				ED11EBA026E8C95300536C45 /* TabBarController.swift in Sources */,

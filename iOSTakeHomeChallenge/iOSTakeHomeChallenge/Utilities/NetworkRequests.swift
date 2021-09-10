@@ -34,7 +34,10 @@ func fetchInfo(view: UIViewController, url: String, completion: @escaping (Data)
 
 func networkErrorMessage(view: UIViewController, error: Error?) {
     DispatchQueue.main.async {
-        let alert = UIAlertController(title: "There was an issue", message: "There was an issue fetching the data: \(error)", preferredStyle: .alert)
+        
+        guard let errorMessage = error else { return }
+        
+        let alert = UIAlertController(title: "There was an issue", message: "There was an issue fetching the data: \(errorMessage)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         view.present(alert, animated: true)
     }
