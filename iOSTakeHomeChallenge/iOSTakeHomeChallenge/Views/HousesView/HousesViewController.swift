@@ -56,8 +56,15 @@ class HousesViewController: UIViewController {
     }
     
     func loadData(houses: [House]) {
-        cachedHouses = houses
-        filteredHouses = cachedHouses
+        
+        //Saving houses this way will cause everything to be loaded at once, which causes a UI jump.
+//        cachedHouses = houses
+//        filteredHouses = cachedHouses
+
+        for house in houses {
+            cachedHouses.append(house)
+            filteredHouses.append(house)
+        }
         
         DispatchQueue.main.async { [self] in
             

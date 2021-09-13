@@ -30,7 +30,6 @@ extension HousesViewController: UISearchBarDelegate {
 extension HousesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //cachedHouses.count
         filteredHouses.count
     }
     

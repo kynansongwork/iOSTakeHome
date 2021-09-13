@@ -55,7 +55,8 @@ class CharactersViewController: UIViewController {
     }
     
     func loadData(characters: [Character]) {
-        
+
+        //Appending characters this way so when the tableview more characters can be loaded, instead of loading everything at once.
         for character in characters {
             cachedCharacters.append(character)
             filteredCharacters.append(character)

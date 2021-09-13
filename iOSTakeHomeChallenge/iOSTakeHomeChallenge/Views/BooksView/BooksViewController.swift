@@ -28,7 +28,7 @@ class BooksViewController: UIViewController {
         loadingSpinner.isHidden = false
         loadingSpinner.startAnimating()
         
-        fetchInfo(view: self, url: "https://anapioficeandfire.com/api/books", completion: { booksInfo in
+        fetchInfo(view: self, url: "https://anapioficeandfire.com/api/books?page=1&pageSize=100", completion: { booksInfo in
             
             let books = try! JSONDecoder().decode([Book].self, from: booksInfo)
             self.loadData(books: books)

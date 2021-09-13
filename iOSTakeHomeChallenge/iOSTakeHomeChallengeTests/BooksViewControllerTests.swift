@@ -18,11 +18,7 @@ class BooksViewControllerTests: XCTestCase {
         viewController = storyboard.instantiateViewController(identifier: "BooksView") as? BooksViewController
         viewController?.loadView()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
+    
     func testCanGetBooks() throws {
         
         guard let view = viewController else { return }
