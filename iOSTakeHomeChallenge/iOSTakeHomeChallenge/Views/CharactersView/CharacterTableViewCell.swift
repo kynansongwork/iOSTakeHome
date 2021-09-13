@@ -40,14 +40,10 @@ class CharacterTableViewCell: UITableViewCell {
                 let number = season.replacingOccurrences(of: "Season", with: "").trimmingCharacters(in: .whitespaces)
                 guard let numeral = Int(number)?.romanNumeral else { return }
                 
-                if number == "1" || number == "8" {
-                    seasons.append(numeral)
+                if seasons.contains("I") || seasons.count > 1 {
+                    seasons.append(", \(numeral)")
                 } else {
-                    if seasons.contains("I") {
-                        seasons.append(", \(numeral)")
-                    } else {
-                        seasons.append(numeral)
-                    }
+                    seasons.append(numeral)
                 }
             } else {
                 seasons.append("Not shown on TV")
