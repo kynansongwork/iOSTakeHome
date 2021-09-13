@@ -55,12 +55,12 @@ class CharactersViewController: UIViewController {
     }
     
     func loadData(characters: [Character]) {
-        //cachedCharacters = characters
         
         for character in characters {
             cachedCharacters.append(character)
+            filteredCharacters.append(character)
         }
-        
+
         DispatchQueue.main.async { [self] in
             
             loadingSpinner.stopAnimating()

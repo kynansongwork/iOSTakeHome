@@ -57,6 +57,7 @@ class HousesViewController: UIViewController {
     
     func loadData(houses: [House]) {
         cachedHouses = houses
+        filteredHouses = cachedHouses
         
         DispatchQueue.main.async { [self] in
             
