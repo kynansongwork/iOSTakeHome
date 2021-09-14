@@ -40,7 +40,7 @@ class CharacterTableViewCell: UITableViewCell {
                 let number = season.replacingOccurrences(of: "Season", with: "").trimmingCharacters(in: .whitespaces)
                 guard let numeral = Int(number)?.romanNumeral else { return }
                 
-                if seasons.contains("I") || seasons.count > 1 {
+                if seasons.count >= 1 {
                     seasons.append(", \(numeral)")
                 } else {
                     seasons.append(numeral)

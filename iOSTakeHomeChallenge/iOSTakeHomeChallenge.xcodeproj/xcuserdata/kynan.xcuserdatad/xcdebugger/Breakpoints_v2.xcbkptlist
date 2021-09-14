@@ -228,5 +228,69 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4597DB6C-D0DB-460E-B0AA-6DDE60897C46"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOSTakeHomeChallenge/Views/CharactersView/Extensions/CharactersViewController+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "searchBar(_:textDidChange:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E137311D-69D3-47D4-AE5F-04A6E6C6565E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOSTakeHomeChallenge/Views/CharactersView/Extensions/CharactersViewController+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "searchBar(_:textDidChange:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E137311D-69D3-47D4-AE5F-04A6E6C6565E - e20341d57d4a0d5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOSTakeHomeChallenge.CharactersViewController.searchBar(_: __C.UISearchBar, textDidChange: Swift.String) -&gt; ()"
+                  moduleName = "iOSTakeHomeChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kynan/Downloads/iOS%20Takehome/iOSTakeHomeChallenge/iOSTakeHomeChallenge/Views/CharactersView/Extensions/CharactersViewController+Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "314">
+               </Location>
+               <Location
+                  uuid = "E137311D-69D3-47D4-AE5F-04A6E6C6565E - dd391821c7c8a571"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (iOSTakeHomeChallenge.Character) -&gt; Swift.Bool in iOSTakeHomeChallenge.CharactersViewController.searchBar(_: __C.UISearchBar, textDidChange: Swift.String) -&gt; ()"
+                  moduleName = "iOSTakeHomeChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kynan/Downloads/iOS%20Takehome/iOSTakeHomeChallenge/iOSTakeHomeChallenge/Views/CharactersView/Extensions/CharactersViewController+Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
