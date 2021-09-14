@@ -30,6 +30,8 @@
 		ED11EBC026EB7FED00536C45 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBBF26EB7FED00536C45 /* Int+Extensions.swift */; };
 		ED11EBC226EBA7CD00536C45 /* HousesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBC126EBA7CD00536C45 /* HousesViewControllerTests.swift */; };
 		ED11EBC426EBA7DC00536C45 /* CharactersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBC326EBA7DC00536C45 /* CharactersViewControllerTests.swift */; };
+		ED11EBC626F09DB900536C45 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBC526F09DB900536C45 /* BooksViewModel.swift */; };
+		ED11EBCC26F09E5400536C45 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBCB26F09E5400536C45 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		ED11EBBF26EB7FED00536C45 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		ED11EBC126EBA7CD00536C45 /* HousesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesViewControllerTests.swift; sourceTree = "<group>"; };
 		ED11EBC326EBA7DC00536C45 /* CharactersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewControllerTests.swift; sourceTree = "<group>"; };
+		ED11EBC526F09DB900536C45 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
+		ED11EBCB26F09E5400536C45 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		117E699225F7A21E00E313E3 /* iOSTakeHomeChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				ED11EBCA26F09E3C00536C45 /* Models */,
 				ED11EBA126E8C95800536C45 /* Controllers */,
 				ED11EB8E26E8BC4100536C45 /* Utilities */,
 				ED11EB8D26E8B70000536C45 /* Views */,
@@ -120,7 +125,6 @@
 				117E699C25F7A21F00E313E3 /* Assets.xcassets */,
 				117E699E25F7A21F00E313E3 /* LaunchScreen.storyboard */,
 				117E69A125F7A21F00E313E3 /* Info.plist */,
-				ED11EBAD26E9FCD000536C45 /* Models.swift */,
 			);
 			path = iOSTakeHomeChallenge;
 			sourceTree = "<group>";
@@ -176,9 +180,10 @@
 		ED11EBA526E8EF6A00536C45 /* BooksView */ = {
 			isa = PBXGroup;
 			children = (
+				ED11EBC726F09E0500536C45 /* BooksCells */,
 				ED11EBBA26EA7EB200536C45 /* Extensions */,
 				117E69A825F7A39900E313E3 /* BooksViewController.swift */,
-				ED11EBB826EA7E9D00536C45 /* BooksTableViewCell.swift */,
+				ED11EBC526F09DB900536C45 /* BooksViewModel.swift */,
 			);
 			path = BooksView;
 			sourceTree = "<group>";
@@ -186,9 +191,9 @@
 		ED11EBA626E8EF7000536C45 /* HousesView */ = {
 			isa = PBXGroup;
 			children = (
+				ED11EBC826F09E1200536C45 /* HousesCells */,
 				ED11EBAA26E8EFAF00536C45 /* Extensions */,
 				117E69AB25F7A3A600E313E3 /* HousesViewController.swift */,
-				ED11EBA826E8EF9600536C45 /* HousesTableViewCell.swift */,
 			);
 			path = HousesView;
 			sourceTree = "<group>";
@@ -196,9 +201,9 @@
 		ED11EBA726E8EF7800536C45 /* CharactersView */ = {
 			isa = PBXGroup;
 			children = (
+				ED11EBC926F09E2900536C45 /* CharactersCells */,
 				ED11EBB126EA059D00536C45 /* Extensions */,
 				117E69AE25F7A3B600E313E3 /* CharactersViewController.swift */,
-				ED11EBB426EA060F00536C45 /* CharacterTableViewCell.swift */,
 			);
 			path = CharactersView;
 			sourceTree = "<group>";
@@ -225,6 +230,39 @@
 				ED11EBBB26EA7EC800536C45 /* BooksViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ED11EBC726F09E0500536C45 /* BooksCells */ = {
+			isa = PBXGroup;
+			children = (
+				ED11EBB826EA7E9D00536C45 /* BooksTableViewCell.swift */,
+			);
+			path = BooksCells;
+			sourceTree = "<group>";
+		};
+		ED11EBC826F09E1200536C45 /* HousesCells */ = {
+			isa = PBXGroup;
+			children = (
+				ED11EBA826E8EF9600536C45 /* HousesTableViewCell.swift */,
+			);
+			path = HousesCells;
+			sourceTree = "<group>";
+		};
+		ED11EBC926F09E2900536C45 /* CharactersCells */ = {
+			isa = PBXGroup;
+			children = (
+				ED11EBB426EA060F00536C45 /* CharacterTableViewCell.swift */,
+			);
+			path = CharactersCells;
+			sourceTree = "<group>";
+		};
+		ED11EBCA26F09E3C00536C45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ED11EBAD26E9FCD000536C45 /* Models.swift */,
+				ED11EBCB26F09E5400536C45 /* ViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,9 +372,11 @@
 				ED11EBA426E8CBB300536C45 /* UIColour+Extensions.swift in Sources */,
 				117E69AC25F7A3A600E313E3 /* HousesViewController.swift in Sources */,
 				ED11EBBE26EB55AB00536C45 /* NetworkRequests.swift in Sources */,
+				ED11EBC626F09DB900536C45 /* BooksViewModel.swift in Sources */,
 				ED11EBB926EA7E9D00536C45 /* BooksTableViewCell.swift in Sources */,
 				ED11EBBC26EA7EC800536C45 /* BooksViewController+Extensions.swift in Sources */,
 				ED11EBA926E8EF9600536C45 /* HousesTableViewCell.swift in Sources */,
+				ED11EBCC26F09E5400536C45 /* ViewModel.swift in Sources */,
 				ED11EBC026EB7FED00536C45 /* Int+Extensions.swift in Sources */,
 				117E69AF25F7A3B600E313E3 /* CharactersViewController.swift in Sources */,
 				117E69A925F7A39900E313E3 /* BooksViewController.swift in Sources */,

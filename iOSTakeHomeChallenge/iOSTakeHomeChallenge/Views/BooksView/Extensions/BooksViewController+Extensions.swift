@@ -11,13 +11,34 @@ import UIKit
 extension BooksViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cachedBooks.count
+        if let booksCount = self.viewModel?.cachedBooks.count {
+            return booksCount
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BooksTableViewCell") as! BooksTableViewCell
-        cell.setupWith(book: cachedBooks[indexPath.row])
-        return cell
+        if let books = viewModel?.cachedBooks {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BooksTableViewCell") as! BooksTableViewCell
+            cell.setupWith(book: books[indexPath.row])
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+}
+
+extension BooksViewController: ViewModelDelegate {
+    
+    func viewModelDidUpdate() {
+        DispatchQueue.main.async { [self] in
+            
+            loadingSpinner.stopAnimating()
+            loadingSpinner.isHidden = true
+            
+            tableView.reloadData()
+        }
     }
 }

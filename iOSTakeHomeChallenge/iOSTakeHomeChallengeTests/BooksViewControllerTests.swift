@@ -28,13 +28,13 @@ class BooksViewControllerTests: XCTestCase {
         fetchInfo(view: view, url: "https://anapioficeandfire.com/api/books", completion: { booksInfo in
             
             let books = try! JSONDecoder().decode([Book].self, from: booksInfo)
-            self.viewController?.loadData(books: books)
+            self.viewController?.viewModel?.loadData(books: books)
             
             expectation.fulfill()
         })
         
         waitForExpectations(timeout: 5, handler: nil)
         
-        XCTAssertTrue(viewController?.cachedBooks.count != 0)
+        XCTAssertTrue(viewController?.viewModel?.cachedBooks.count != 0)
     }
 }
