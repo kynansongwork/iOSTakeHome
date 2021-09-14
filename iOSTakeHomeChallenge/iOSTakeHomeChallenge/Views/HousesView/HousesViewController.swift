@@ -13,10 +13,7 @@ class HousesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var houseSearchBar: UISearchBar!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
-    
-//    var cachedHouses: [House] = []
-//    var filteredHouses: [House] = []
-    
+
     var viewModel: HousesViewModel?
     
     var page = 1

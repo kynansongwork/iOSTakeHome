@@ -14,8 +14,7 @@ class CharactersViewController: UIViewController {
     @IBOutlet weak var characterViewSearchBar: UISearchBar!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     
-    var cachedCharacters: [Character] = []
-    var filteredCharacters: [Character] = []
+    var viewModel: CharactersViewModel?
     
     var page = 1
     
@@ -23,6 +22,9 @@ class CharactersViewController: UIViewController {
         super.viewDidLoad()
         self.view.bringSubviewToFront(characterViewSearchBar)
         self.view.bringSubviewToFront(loadingSpinner)
+        
+        viewModel = CharactersViewModel()
+        viewModel?.delegate = self
         
         self.tableView.delegate = self
         setUpSearchBar()
@@ -41,8 +43,7 @@ class CharactersViewController: UIViewController {
         characterViewSearchBar.isTranslucent = true
         characterViewSearchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     }
-    
-    // This uses the fetch all url on the api docs
+
     func fetchCharacters(page: Int, pageSize: Int) {
         
         loadingSpinner.isHidden = false
@@ -50,24 +51,7 @@ class CharactersViewController: UIViewController {
         
         fetchInfo(view: self, url: "https://anapioficeandfire.com/api/characters?page=\(page)&pageSize=\(pageSize)", completion: { charactersInfo in
             let characters = try! JSONDecoder().decode([Character].self, from: charactersInfo)
-            self.loadData(characters: characters)
+            self.viewModel?.loadData(characters: characters)
         })
-    }
-    
-    func loadData(characters: [Character]) {
-
-        //Appending characters this way so when the tableview more characters can be loaded, instead of loading everything at once.
-        for character in characters {
-            cachedCharacters.append(character)
-            filteredCharacters.append(character)
-        }
-
-        DispatchQueue.main.async { [self] in
-            
-            loadingSpinner.stopAnimating()
-            loadingSpinner.isHidden = true
-            
-            tableView.reloadData()
-        }
     }
 }

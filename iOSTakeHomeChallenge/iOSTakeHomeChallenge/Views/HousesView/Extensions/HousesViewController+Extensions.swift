@@ -72,7 +72,6 @@ extension HousesViewController: ViewModelDelegate {
             
             loadingSpinner.stopAnimating()
             loadingSpinner.isHidden = true
-            
             tableView.reloadData()
         }
     }

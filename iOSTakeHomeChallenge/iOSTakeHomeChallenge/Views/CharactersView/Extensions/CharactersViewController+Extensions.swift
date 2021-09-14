@@ -12,7 +12,9 @@ extension CharactersViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        filteredCharacters = cachedCharacters.filter( { (text) -> Bool in
+        guard let cachedCharacters = viewModel?.cachedCharacters else { return }
+        
+        viewModel?.filteredCharacters = cachedCharacters.filter( { (text) -> Bool in
             let searchString = text
             let nameRange = searchString.name.range(of: searchText, options: .caseInsensitive)
             let aliasRange = searchString.aliases.first?.range(of: searchText, options: .caseInsensitive)
@@ -25,7 +27,7 @@ extension CharactersViewController: UISearchBarDelegate {
         })
 
         if searchText.isEmpty {
-            filteredCharacters = cachedCharacters
+            viewModel?.filteredCharacters = cachedCharacters
             self.tableView.reloadData()
         } else {
             self.tableView.reloadData()
@@ -36,22 +38,48 @@ extension CharactersViewController: UISearchBarDelegate {
 extension CharactersViewController: UITableViewDataSource, UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        filteredCharacters.count
+        if let filteredCount = viewModel?.filteredCharacters.count {
+            return filteredCount
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterTableViewCell") as! CharacterTableViewCell
-        cell.setupWith(character: filteredCharacters[indexPath.row])
-        return cell
+        
+        if let filteredCharacters = viewModel?.filteredCharacters {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterTableViewCell") as! CharacterTableViewCell
+            cell.setupWith(character: filteredCharacters[indexPath.row])
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == filteredCharacters.count {
-            if filteredCharacters.count >= 30 {
-                page += 1
-                fetchCharacters(page: page, pageSize: 100)
-                print("End of line: \(page)")
+        
+        if let filteredCharacters = viewModel?.filteredCharacters {
+            if indexPath.row + 1 == filteredCharacters.count {
+                if filteredCharacters.count >= 30 {
+                    page += 1
+                    fetchCharacters(page: page, pageSize: 100)
+                    print("End of line: \(page)")
+                }
             }
+        }
+    }
+}
+
+extension CharactersViewController: ViewModelDelegate {
+        
+    func viewModelDidUpdate() {
+        DispatchQueue.main.async { [self] in
+            
+            loadingSpinner.stopAnimating()
+            loadingSpinner.isHidden = true
+            
+            tableView.reloadData()
         }
     }
 }

@@ -28,13 +28,13 @@ class CharactersViewControllerTests: XCTestCase {
         fetchInfo(view: view, url: "https://anapioficeandfire.com/api/characters", completion: { charactersInfo in
             
             let characters = try! JSONDecoder().decode([Character].self, from: charactersInfo)
-            self.viewController?.loadData(characters: characters)
+            self.viewController?.viewModel?.loadData(characters: characters)
             
             expectation.fulfill()
         })
         
         waitForExpectations(timeout: 5, handler: nil)
         
-        XCTAssertTrue(viewController?.cachedCharacters.count != 0)
+        XCTAssertTrue(viewController?.viewModel?.cachedCharacters.count != 0)
     }
 }

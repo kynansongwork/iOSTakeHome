@@ -33,6 +33,7 @@
 		ED11EBC626F09DB900536C45 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBC526F09DB900536C45 /* BooksViewModel.swift */; };
 		ED11EBCC26F09E5400536C45 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBCB26F09E5400536C45 /* ViewModel.swift */; };
 		ED11EBCE26F09F7F00536C45 /* HousesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBCD26F09F7F00536C45 /* HousesViewModel.swift */; };
+		ED11EBD026F0A35300536C45 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBCF26F0A35300536C45 /* CharactersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		ED11EBC526F09DB900536C45 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		ED11EBCB26F09E5400536C45 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		ED11EBCD26F09F7F00536C45 /* HousesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesViewModel.swift; sourceTree = "<group>"; };
+		ED11EBCF26F0A35300536C45 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				ED11EBC926F09E2900536C45 /* CharactersCells */,
 				ED11EBB126EA059D00536C45 /* Extensions */,
 				117E69AE25F7A3B600E313E3 /* CharactersViewController.swift */,
+				ED11EBCF26F0A35300536C45 /* CharactersViewModel.swift */,
 			);
 			path = CharactersView;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				ED11EBC026EB7FED00536C45 /* Int+Extensions.swift in Sources */,
 				117E69AF25F7A3B600E313E3 /* CharactersViewController.swift in Sources */,
 				117E69A925F7A39900E313E3 /* BooksViewController.swift in Sources */,
+				ED11EBD026F0A35300536C45 /* CharactersViewModel.swift in Sources */,
 				ED11EBA026E8C95300536C45 /* TabBarController.swift in Sources */,
 				117E699425F7A21E00E313E3 /* AppDelegate.swift in Sources */,
 				117E699625F7A21E00E313E3 /* SceneDelegate.swift in Sources */,

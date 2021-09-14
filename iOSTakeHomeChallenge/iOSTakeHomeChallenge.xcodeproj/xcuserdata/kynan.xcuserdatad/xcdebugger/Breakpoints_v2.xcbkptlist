@@ -142,8 +142,8 @@
             filePath = "iOSTakeHomeChallenge/Utilities/NetworkRequests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "networkErrorMessage(view:error:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -226,22 +226,6 @@
             endingLineNumber = "19"
             landmarkName = "romanNumeral"
             landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "19806866-0130-40EB-BE53-BFFE1AFC6E7F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSTakeHomeChallenge/Views/CharactersView/Extensions/CharactersViewController+Extensions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "tableView(_:willDisplay:forRowAt:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
