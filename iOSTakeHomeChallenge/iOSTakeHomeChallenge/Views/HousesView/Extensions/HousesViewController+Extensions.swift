@@ -12,14 +12,16 @@ extension HousesViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        filteredHouses = cachedHouses.filter( { (text) -> Bool in
+        guard let cachedHouses = viewModel?.cachedHouses else { return }
+        
+        viewModel?.filteredHouses = cachedHouses.filter( { (text) -> Bool in
             let searchString = text
             let range = searchString.name.range(of: searchText, options: .caseInsensitive)
             return range != nil
         })
 
         if searchText.isEmpty {
-            filteredHouses = cachedHouses
+            viewModel?.filteredHouses = cachedHouses
             self.tableView.reloadData()
         } else {
             self.tableView.reloadData()
@@ -30,22 +32,48 @@ extension HousesViewController: UISearchBarDelegate {
 extension HousesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        filteredHouses.count
+        if let filteredCount = viewModel?.filteredHouses.count {
+            return filteredCount
+        } else {
+            return 0
+        }
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HouseTableViewCell") as! HouseTableViewCell
-        cell.setupWith(house: filteredHouses[indexPath.row])
-        return cell
+        
+        if let filtered = viewModel?.filteredHouses {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HouseTableViewCell") as! HouseTableViewCell
+            cell.setupWith(house: filtered[indexPath.row])
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == filteredHouses.count {
-            if filteredHouses.count >= 50 {
-                page += 1
-                fetchHouses(page: page, numberOfPages: 100)
-                print("End of line, Houses: \(page)")
+        if let filtered = viewModel?.filteredHouses {
+            if indexPath.row + 1 == filtered.count {
+                if filtered.count >= 50 {
+                    page += 1
+                    fetchHouses(page: page, numberOfPages: 100)
+                    print("End of line, Houses: \(page)")
+                }
             }
+        }
+    }
+}
+
+extension HousesViewController: ViewModelDelegate {
+    
+    func viewModelDidUpdate() {
+        DispatchQueue.main.async { [self] in
+            
+            loadingSpinner.stopAnimating()
+            loadingSpinner.isHidden = true
+            
+            tableView.reloadData()
         }
     }
 }

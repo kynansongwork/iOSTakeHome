@@ -32,6 +32,7 @@
 		ED11EBC426EBA7DC00536C45 /* CharactersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBC326EBA7DC00536C45 /* CharactersViewControllerTests.swift */; };
 		ED11EBC626F09DB900536C45 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBC526F09DB900536C45 /* BooksViewModel.swift */; };
 		ED11EBCC26F09E5400536C45 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBCB26F09E5400536C45 /* ViewModel.swift */; };
+		ED11EBCE26F09F7F00536C45 /* HousesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11EBCD26F09F7F00536C45 /* HousesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		ED11EBC326EBA7DC00536C45 /* CharactersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewControllerTests.swift; sourceTree = "<group>"; };
 		ED11EBC526F09DB900536C45 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		ED11EBCB26F09E5400536C45 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		ED11EBCD26F09F7F00536C45 /* HousesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				ED11EBC826F09E1200536C45 /* HousesCells */,
 				ED11EBAA26E8EFAF00536C45 /* Extensions */,
 				117E69AB25F7A3A600E313E3 /* HousesViewController.swift */,
+				ED11EBCD26F09F7F00536C45 /* HousesViewModel.swift */,
 			);
 			path = HousesView;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				117E699425F7A21E00E313E3 /* AppDelegate.swift in Sources */,
 				117E699625F7A21E00E313E3 /* SceneDelegate.swift in Sources */,
 				ED11EBAC26E8EFC400536C45 /* HousesViewController+Extensions.swift in Sources */,
+				ED11EBCE26F09F7F00536C45 /* HousesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

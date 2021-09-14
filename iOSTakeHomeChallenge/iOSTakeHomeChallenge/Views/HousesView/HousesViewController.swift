@@ -14,8 +14,10 @@ class HousesViewController: UIViewController {
     @IBOutlet weak var houseSearchBar: UISearchBar!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     
-    var cachedHouses: [House] = []
-    var filteredHouses: [House] = []
+//    var cachedHouses: [House] = []
+//    var filteredHouses: [House] = []
+    
+    var viewModel: HousesViewModel?
     
     var page = 1
     
@@ -23,6 +25,9 @@ class HousesViewController: UIViewController {
         super.viewDidLoad()
         self.view.bringSubviewToFront(houseSearchBar)
         self.view.bringSubviewToFront(loadingSpinner)
+        
+        viewModel = HousesViewModel()
+        viewModel?.delegate = self
         
         self.tableView.delegate = self
         setUpSearchBar()
@@ -51,27 +56,7 @@ class HousesViewController: UIViewController {
         fetchInfo(view: self, url: "https://anapioficeandfire.com/api/houses?page=\(page)&pageSize=\(numberOfPages)", completion: { housesInfo in
             
             let houses = try! JSONDecoder().decode([House].self, from: housesInfo)
-            self.loadData(houses: houses)
+            self.viewModel?.loadData(houses: houses)
         })
-    }
-    
-    func loadData(houses: [House]) {
-        
-        //Saving houses this way will cause everything to be loaded at once, which causes a UI jump.
-//        cachedHouses = houses
-//        filteredHouses = cachedHouses
-
-        for house in houses {
-            cachedHouses.append(house)
-            filteredHouses.append(house)
-        }
-        
-        DispatchQueue.main.async { [self] in
-            
-            loadingSpinner.stopAnimating()
-            loadingSpinner.isHidden = true
-            
-            tableView.reloadData()
-        }
     }
 }
